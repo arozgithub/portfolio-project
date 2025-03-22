@@ -1,0 +1,175 @@
+/* Default (Light) Theme */
+.data-entry-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.data-entry-title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.data-entry-input,
+.data-entry-textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #333333;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.data-entry-input::placeholder,
+.data-entry-textarea::placeholder {
+  color: #999999;
+}
+
+.data-entry-input:focus,
+.data-entry-textarea:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.data-entry-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.data-entry-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.add-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Containers for Projects, Social Media, etc. */
+.project-container,
+.social-media-container {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Global Dark Theme */
+.dark .data-entry-container {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark .data-entry-title {
+  color: #f0f0f0;
+}
+
+.dark .data-entry-input,
+.dark .data-entry-textarea {
+  background: #444444;
+  border: 1px solid #555555;
+  color: #f0f0f0;
+}
+
+.dark .data-entry-input::placeholder,
+.dark .data-entry-textarea::placeholder {
+  color: #bbbbbb;
+}
+
+.dark .data-entry-input:focus,
+.dark .data-entry-textarea:focus {
+  background: #555555;
+  border-color: #66afe9;
+  box-shadow: 0 0 10px rgba(102, 175, 233, 0.5);
+}
+
+.dark .data-entry-button {
+  background: linear-gradient(90deg, #1db954, #1aa34a);
+}
+
+.dark .data-entry-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark .add-button {
+  background: linear-gradient(90deg, #1db954, #1aa34a);
+}
+
+.dark .add-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark .project-container,
+.dark .social-media-container {
+  background: #333333;
+  border: 1px solid #444444;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: #f0f0f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .data-entry-container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .data-entry-title {
+    font-size: 20px;
+  }
+
+  .data-entry-input,
+  .data-entry-textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .data-entry-button,
+  .add-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

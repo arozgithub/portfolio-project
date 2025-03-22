@@ -1,0 +1,144 @@
+:root {
+    --main-color: #4a2dff;
+    --text-color: #000;
+    --light-color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 40px;
+}
+
+/* Left Side - Image */
+.hero-image {
+    width: 40%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Right Side - Content */
+.hero-content {
+    width: 55%;
+    text-align: left;
+}
+
+/* Main Title */
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    position: relative;
+    color:rgb(0, 153, 255);
+    margin-bottom: 10px;
+}
+
+/* Underline Effect */
+.hero-content h1::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    height: 35px;
+    background-color: rgba(74, 45, 255, 0.45);
+    width: 60%;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    z-index: -1;
+}
+
+/* Quote Styling */
+.quote {
+    font-style: italic;
+    font-size: 18px;
+    color:cornflowerblue;
+    margin-top: 15px;
+}
+
+.quote span {
+    font-weight: bold;
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    color:#4a2dff;
+}
+
+/* Black Background Section */
+.black-box {
+    background-color: black;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 90%;
+}
+
+.black-box h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.black-box h4 {
+    color: var(--main-color);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.black-box p {
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero-image {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    /* .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content h1::before {
+        top: 35px;
+        height: 25px;
+        width: 50%;
+    } */
+
+    .black-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* .hero-content h1 {
+        font-size: 2.5rem;
+        color: #92bfb1; /* New color for heading */
+    
+
+    /* .hero-content h1::before {
+        top: 25px;
+        height: 15px;
+        background-color: rgba(146, 191, 177, 0.7); /* Updated color */
+   
+    .hero-image {
+        width: 100%;
+    }
+}
+
+
+
+

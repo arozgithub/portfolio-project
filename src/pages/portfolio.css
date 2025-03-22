@@ -1,0 +1,44 @@
+/* Portfolio Heading */
+h2 {
+  font-size: 2rem;
+  color: cornflowerblue;
+  margin-bottom: 1rem;
+}
+
+/* Profile Details */
+p {
+  font-size: 1.1rem;
+  color: cornflowerblue;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    width: 90%;
+  }
+}
+
+/* Social Media Icons Section */
+.social-media-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-media-link {
+  text-decoration: none;
+  color: var(--main);  /* var(--main) should be defined in your global variables, e.g., #3071a4 */
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+.social-media-link:hover {
+  color: #3071a4;
+}

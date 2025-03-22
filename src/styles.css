@@ -1,0 +1,75 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Projects Container */
+.projects-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+/* No Projects */
+.no-projects {
+  color: #888;
+  font-size: 18px;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Project List */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Project Card */
+.project-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.project-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.project-link:hover {
+  background-color: #0056b3;
+}

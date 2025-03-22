@@ -1,0 +1,129 @@
+/* Default (Light) Theme */
+.contact-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 450px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+}
+
+.contact-title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #333333;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-input::placeholder {
+  color: #999999;
+}
+
+.contact-input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.contact-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+  background: #e0f7e9;
+  color: #2e7d32;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Global Dark Theme (when .dark is on the root) */
+.dark .contact-container {
+  background-color: #00000003;
+}
+
+.dark .contact-card {
+  background: #3a353553;
+  border: 1px solid #1b121250;
+  box-shadow: 0 10px 30px rgba(58, 57, 57, 0.3);
+}
+
+.dark .contact-title {
+  color: #f0f0f0;
+}
+
+.dark .contact-input {
+  background: #444444;
+  border: 1px solid #555555;
+  color: #f0f0f0;
+}
+
+.dark .contact-input::placeholder {
+  color: #bbbbbb;
+}
+
+.dark .contact-input:focus {
+  background: #555555;
+  border-color: #66afe9;
+  box-shadow: 0 0 10px rgba(102, 175, 233, 0.5);
+}
+
+.dark .contact-button {
+  background: linear-gradient(90deg, #1db954, #1aa34a);
+}
+
+.dark .success-message {
+  background: rgba(76, 93, 76, 0.2);
+  color: #cfcfcf;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

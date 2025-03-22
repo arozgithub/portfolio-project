@@ -1,0 +1,64 @@
+.about-me {
+    background-color: #f8f8f8;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #0a0a0b;
+}
+
+.about-content {
+    flex: 1;
+    text-align: left;
+}
+
+.about-content h2 {
+   color: cornflowerblue;
+}
+.about-content h3 {
+    color: cornflowerblue;
+ }
+/* .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+} */
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skills-list li {
+    background: #050506;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 2px solid  cornflowerblue; /* Added border */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.skills-list li:hover {
+    background:  rgb(157, 189, 250);
+    color: black;
+    border-color: black;
+}

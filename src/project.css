@@ -1,0 +1,57 @@
+.projects-container {
+    text-align: center;
+  }
+  
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .project-card {
+    width: 300px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .project-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .project-card h3 {
+    margin: 10px 0;
+  }
+  
+  .project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+  }
+  /* Default styling for the GitHub link */
+.project-card a.github-link {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 8px; /* optional padding to emphasize the background */
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-card a.github-link:hover {
+  text-decoration: underline;
+}
+
+/* Dark Mode Overrides for the GitHub link */
+body.dark-mode .project-card a.github-link {
+  background-color: #444444; /* New background for dark mode */
+  color: #66b3ff;            /* Adjust text color for contrast */
+}

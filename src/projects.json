@@ -1,0 +1,24 @@
+[
+    {
+      "id": "1",
+      "title": "Tumor Detection System",
+      "description": "An AI-powered tool for detecting brain tumors in MRI scans.",
+      "image": "https://your-image-url.com/tumor.jpg",
+      "github": "https://github.com/yourusername/tumor-detection"
+    },
+    {
+      "id": "2",
+      "title": "Face Spoof Detection",
+      "description": "A ViT-based model to detect face spoofing attacks.",
+      "image": "https://your-image-url.com/spoof.jpg",
+      "github": "https://github.com/yourusername/spoof-detection"
+    },
+    {
+      "id": "3",
+      "title": "Real-time Voting System",
+      "description": "A TCP-based multithreaded online voting system.",
+      "image": "https://your-image-url.com/vote.jpg",
+      "github": "https://github.com/yourusername/online-vote"
+    }
+  ]
+  
