@@ -1,6 +1,6 @@
 .footer {
     width: 100%; /* Full width */
-    background-color: #111;
+    /* background-color: #111; */
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -26,12 +26,12 @@
 }
 
 .social-links a {
-    color: white;
+    color:rgb(41, 81, 211);
     font-size: 24px;
     margin: 0 10px;
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #4a2dff;
+    color:cornflowerblue;
 }

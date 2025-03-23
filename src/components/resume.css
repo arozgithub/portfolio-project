@@ -1,24 +1,45 @@
+/* ResumeUploader.css */
+
+/* Light Mode Defaults */
 .resume-uploader {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  
-  .upload-section {
-    margin: 20px 0;
-  }
-  
-  .pdf-viewer {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
-  
-  input[type="file"] {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.upload-section {
+  margin: 20px 0;
+}
+
+
+input[type="file"] {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Dark Mode Overrides */
+/* These rules apply when the "dark" class is added to the root (html) */
+.dark .resume-uploader {
+  background-color: #1a1a1a !important;
+  color: #f0f0f0 !important;
+}
+
+.pdf-viewer {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgba(204, 204, 204, 0.3); /* Faded light border */
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Override */
+.dark .pdf-viewer {
+  background-color: #333333;
+  border: 1px solid rgba(85, 85, 85, 0.3); /* Faded dark border */
+  color: #f0f0f0;
+}

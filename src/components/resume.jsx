@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import Chatbot from './chatbot'; // Adjust path if necessary
-
+import './resume.css'; // Add this line
 // Set up the PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const ResumeUploader = () => {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null);           // Will store a data URL for preview
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [resumeText, setResumeText] = useState("");
+
+  // On mount, load resumeText and file preview from localStorage if available
+  useEffect(() => {
+    const storedText = localStorage.getItem("resumeText");
+    const storedFile = localStorage.getItem("resumeFile");
+    if (storedText) {
+      setResumeText(storedText);
+    }
+    if (storedFile) {
+      setFile(storedFile);
+    }
+  }, []);
 
   // Read the file as an ArrayBuffer and extract text using PDF.js
   const extractTextFromPDF = async (fileObj) => {
@@ -26,18 +38,27 @@ const ResumeUploader = () => {
       }
       console.log("Extracted Resume Text:", text);
       setResumeText(text);
+      localStorage.setItem("resumeText", text);
     } catch (error) {
       console.error("Error extracting text:", error);
     }
   };
 
+  // Convert file to Base64 Data URL and store it
+  const convertFileToDataURL = (fileObj) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const fileDataUrl = event.target.result;
+      setFile(fileDataUrl);
+      localStorage.setItem("resumeFile", fileDataUrl);
+    };
+    reader.readAsDataURL(fileObj);
+  };
+
   const onFileChange = (e) => {
     const fileObj = e.target.files[0];
     if (fileObj) {
-      // Create an object URL for preview
-      const fileURL = URL.createObjectURL(fileObj);
-      setFile(fileURL);
-      // Extract text from the file object
+      convertFileToDataURL(fileObj);
       extractTextFromPDF(fileObj);
     }
   };
@@ -47,6 +68,7 @@ const ResumeUploader = () => {
   };
 
   const downloadPDF = () => {
+    if (!file) return;
     const link = document.createElement('a');
     link.href = file;
     link.download = 'resume.pdf';
@@ -74,10 +96,10 @@ const ResumeUploader = () => {
           <button onClick={downloadPDF}>Download PDF</button>
         </div>
       )}
-      {/* Once resumeText is extracted, pass it to Chatbot */}
+      {/* Once resumeText is extracted (or loaded), pass it to Chatbot */}
       {resumeText && (
         <div>
-          <h3>Extracted Resume Text</h3>
+          {/* <h3>Extracted Resume Text</h3> */}
           <Chatbot conversationHistory={resumeText} />
         </div>
       )}

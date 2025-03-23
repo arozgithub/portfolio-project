@@ -4,17 +4,19 @@ import "./DataEntry.css";
 
 const DataEntry = ({ setUserData }) => {
   const navigate = useNavigate();
+  const [skillInput, setSkillInput] = useState(""); // For individual skill entry
+
   const [formData, setFormData] = useState({
     name: "",
     bio: "",
     aboutMe: "",
-    skills: "",
+    skills: [], // Skills stored as an array
     projects: JSON.parse(localStorage.getItem("userProjects")) || [],
     githubRepo: "",
-    socialMedia: [] // Holds multiple social media entries
+    socialMedia: JSON.parse(localStorage.getItem("userSocialMedia")) || []
   });
 
-  // Generic input change for top-level fields
+  // Handle top-level input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -22,12 +24,9 @@ const DataEntry = ({ setUserData }) => {
 
   // Add an empty project
   const addProject = () => {
-    setFormData((prevState) => ({
-      ...prevState,
-      projects: [
-        ...prevState.projects,
-        { title: "", description: "", image: "", github: "" }
-      ],
+    setFormData((prev) => ({
+      ...prev,
+      projects: [...prev.projects, { title: "", description: "", image: "", github: "" }]
     }));
   };
 
@@ -58,10 +57,10 @@ const DataEntry = ({ setUserData }) => {
         github: data.html_url,
         image: `https://opengraph.githubassets.com/1/${owner}/${repo}`,
       };
-      setFormData((prevState) => ({
-        ...prevState,
-        projects: [...prevState.projects, newProject],
-        githubRepo: "",
+      setFormData((prev) => ({
+        ...prev,
+        projects: [...prev.projects, newProject],
+        githubRepo: ""
       }));
     } catch (error) {
       console.error("Error fetching repository:", error);
@@ -69,27 +68,36 @@ const DataEntry = ({ setUserData }) => {
     }
   };
 
-  // Social Media Functions
+  // SOCIAL MEDIA FUNCTIONS
 
-  // Append an empty social media entry
+  // Append a new empty social media entry
   const addSocialMediaEntry = () => {
-    setFormData((prevState) => ({
-      ...prevState,
-      socialMedia: [...prevState.socialMedia, { name: "", url: "" }],
+    setFormData((prev) => ({
+      ...prev,
+      socialMedia: [...prev.socialMedia, { name: "", url: "" }]
     }));
   };
 
-  // Update a specific social media entry field
+  // Update a specific social media field by index
   const handleSocialMediaChange = (index, field, value) => {
     const updatedSocialMedia = [...formData.socialMedia];
     updatedSocialMedia[index][field] = value;
-    setFormData((prevState) => ({
-      ...prevState,
-      socialMedia: updatedSocialMedia,
-    }));
+    setFormData((prev) => ({ ...prev, socialMedia: updatedSocialMedia }));
   };
 
-  // On submit, save all the data (including all social media entries)
+  // SKILLS FUNCTIONS
+
+  // Append a new skill to the skills array
+  const handleAddSkill = () => {
+    if (skillInput.trim() === "") return;
+    setFormData((prev) => ({
+      ...prev,
+      skills: [...prev.skills, skillInput.trim()]
+    }));
+    setSkillInput("");
+  };
+
+  // On submit, merge formData with existing data and store it
   const handleSubmit = () => {
     setUserData((prevUserData = {}) => {
       const updatedData = {
@@ -97,15 +105,9 @@ const DataEntry = ({ setUserData }) => {
         name: formData.name || prevUserData.name || "",
         bio: formData.bio || prevUserData.bio || "",
         aboutMe: formData.aboutMe || prevUserData.aboutMe || "",
-        skills: formData.skills || prevUserData.skills || "",
-        projects:
-          formData.projects.length > 0
-            ? formData.projects
-            : prevUserData.projects || [],
-        socialMedia:
-          formData.socialMedia.length > 0
-            ? formData.socialMedia
-            : prevUserData.socialMedia || [],
+        skills: formData.skills.length > 0 ? formData.skills : prevUserData.skills || [],
+        projects: formData.projects.length > 0 ? formData.projects : prevUserData.projects || [],
+        socialMedia: formData.socialMedia.length > 0 ? formData.socialMedia : prevUserData.socialMedia || [],
       };
       localStorage.setItem("portfolioData", JSON.stringify(updatedData));
       localStorage.setItem("userProjects", JSON.stringify(updatedData.projects));
@@ -138,13 +140,28 @@ const DataEntry = ({ setUserData }) => {
         onChange={handleInputChange}
         className="data-entry-textarea"
       ></textarea>
-      <input
-        type="text"
-        name="skills"
-        placeholder="Skills (comma separated)"
-        onChange={handleInputChange}
-        className="data-entry-input"
-      />
+      
+      {/* Skills Section */}
+      <h3 className="text-lg font-bold mt-4">Skills</h3>
+      <div className="skill-entry">
+        <input
+          type="text"
+          placeholder="Enter a skill"
+          value={skillInput}
+          onChange={(e) => setSkillInput(e.target.value)}
+          className="data-entry-input"
+        />
+        <button onClick={handleAddSkill} className="add-button">
+          Add Skill
+        </button>
+      </div>
+      {formData.skills.length > 0 && (
+        <ul className="skills-list">
+          {formData.skills.map((skill, index) => (
+            <li key={index}>{skill}</li>
+          ))}
+        </ul>
+      )}
 
       <h3 className="text-lg font-bold mt-4">Projects</h3>
       {formData.projects.map((project, index) => (
@@ -160,9 +177,7 @@ const DataEntry = ({ setUserData }) => {
             type="text"
             placeholder="Project Description"
             value={project.description}
-            onChange={(e) =>
-              handleProjectChange(index, "description", e.target.value)
-            }
+            onChange={(e) => handleProjectChange(index, "description", e.target.value)}
             className="data-entry-input"
           />
           <input
@@ -205,18 +220,14 @@ const DataEntry = ({ setUserData }) => {
             type="text"
             placeholder="Social Media Name"
             value={entry.name}
-            onChange={(e) =>
-              handleSocialMediaChange(index, "name", e.target.value)
-            }
+            onChange={(e) => handleSocialMediaChange(index, "name", e.target.value)}
             className="data-entry-input"
           />
           <input
             type="text"
             placeholder="Social Media URL"
             value={entry.url}
-            onChange={(e) =>
-              handleSocialMediaChange(index, "url", e.target.value)
-            }
+            onChange={(e) => handleSocialMediaChange(index, "url", e.target.value)}
             className="data-entry-input"
           />
         </div>

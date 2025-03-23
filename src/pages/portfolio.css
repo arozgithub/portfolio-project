@@ -30,7 +30,9 @@ p {
   flex-wrap: wrap;
   gap: 15px;
   margin-top: 10px;
+  justify-content: center; /* This centers the icons horizontally */
 }
+
 
 .social-media-link {
   text-decoration: none;
@@ -40,5 +42,5 @@ p {
 }
 
 .social-media-link:hover {
-  color: #3071a4;
+  color: #060f76;
 }

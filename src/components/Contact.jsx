@@ -24,7 +24,7 @@ const Contact = () => {
   return (
     <div className="contact-container">
       <div className="contact-card">
-        <h2 className="contact-title">📩 Contact Me</h2>
+        <h2 className="contact-title" >📩 Contact Me</h2>
         
         {submitted && <div className="success-message">✅ Message sent successfully!</div>}
         

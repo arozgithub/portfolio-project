@@ -32,3 +32,21 @@ button {
 button:hover {
     background-color: #2b6cb0;
 }
+/* Ensure html and body take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Page container uses flex to distribute content vertically */
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Main content grows to fill available space */
+  .main-content {
+    flex: 1;
+  }
+  

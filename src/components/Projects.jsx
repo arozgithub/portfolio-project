@@ -66,17 +66,24 @@ const Projects = () => {
                     >
                       {/* Delete Button */}
                       <button className="delete-button" onClick={() => handleDelete(project.id)}>✖</button>
-                      <img src={project.image || "https://via.placeholder.com/150"} alt={project.title} className="project-image" />
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="github-link"
-                      >
-                        <FaGithub /> 
-                      </a>
+                      <img 
+                        src={project.image || "https://via.placeholder.com/150"} 
+                        alt={project.title} 
+                        className="project-image" 
+                      />
+                      {/* New inner container for details */}
+                      <div className="project-details">
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                        <a 
+                          href={project.github} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="github-link"
+                        >
+                          <FaGithub />
+                        </a>
+                      </div>
                     </div>
                   )}
                 </Draggable>
