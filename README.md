@@ -79,7 +79,7 @@ This project is a **ReactJS-based single-page portfolio** that dynamically gener
 
 
 ## Author
-Developed by **[Aroz Imran]**
+Developed by **Aroz Imran**
 
 ## License
 This project is licensed under the **MIT License**.
