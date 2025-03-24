@@ -77,14 +77,9 @@ This project is a **ReactJS-based single-page portfolio** that dynamically gener
   ```
 - Follow hosting platform guidelines for deployment.
 
-## Submission Guidelines
-- Submit a **zip folder** in the format **(21L-XXXX)**.
-- Upload code to **GitHub** and share the repository link.
-- Mention **API keys** (if any) in comments.
-- Ensure **proper documentation and comments** in the code.
 
 ## Author
-Developed by **[Your Name]**
+Developed by **[Aroz Imran]**
 
 ## License
 This project is licensed under the **MIT License**.
